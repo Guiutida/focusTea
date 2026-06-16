@@ -3,5 +3,11 @@
 !.env.example
 node_modules/
 dist/
+.vs/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+*.log
 .DS_Store
 Thumbs.db
