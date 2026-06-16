@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Configurações | Focus Tea</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="app-shell">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <aside class="sidebar" aria-label="Navegação principal">
+    <a class="brand" href="../dashboard.html"><span class="logo">🍵</span><span>Focus Tea</span></a>
+    <div class="user-card"><div class="avatar">👤</div><strong class="user-nome">Estudante</strong><span>Ambiente personalizado</span></div>
+    <nav class="side-nav">
+      <a href="../dashboard.html">🏠 Dashboard</a>
+      <a href="rotina.html">📅 Rotina</a>
+      <a href="estudos.html">📚 Estudos</a>
+      <a href="exercicios.html">📝 Exercícios</a>
+      <a class="active" href="configuracoes.html" aria-current="page">⚙️ Configurações</a>
+    </nav>
+  </aside>
+
+  <main id="conteudo" class="workspace">
+    <header class="workspace-header">
+      <div>
+        <span class="eyebrow">Acessibilidade</span>
+        <h1>Configurações do ambiente</h1>
+      </div>
+    </header>
+
+    <section class="settings-grid">
+      <article class="panel-card">
+        <h2>Visual</h2>
+        <label for="tema">Tema
+          <select id="tema">
+            <option value="padrao">Padrão</option>
+            <option value="calmo">Calmo</option>
+            <option value="foco">Concentração</option>
+            <option value="lavanda">Lavanda suave</option>
+            <option value="escuro">Escuro</option>
+            <option value="alto">Alto contraste</option>
+          </select>
+        </label>
+        <label for="fonte">Tamanho da fonte
+          <select id="fonte">
+            <option value="normal">Normal</option>
+            <option value="grande">Grande</option>
+            <option value="muito">Muito grande</option>
+          </select>
+        </label>
+      </article>
+
+      <article class="panel-card">
+        <h2>Conforto sensorial</h2>
+        <label class="check"><input id="semDistracoes" type="checkbox" /> Modo sem distrações</label>
+        <label class="check"><input id="reducao" type="checkbox" /> Reduzir animações</label>
+        <label class="check"><input id="espacamento" type="checkbox" /> Mais espaçamento entre textos</label>
+        <button class="btn btn-primary" onclick="salvarConfiguracoes()">Salvar configurações</button>
+        <p id="statusConfig" class="muted" aria-live="polite"></p>
+      </article>
+
+      <article class="panel-card">
+        <h2>Perfil</h2>
+        <label for="nomeUsuario">Nome exibido
+          <input id="nomeUsuario" type="text" placeholder="Seu nome" />
+        </label>
+        <button class="btn btn-soft" onclick="salvarPerfil()">Salvar perfil</button>
+      </article>
+
+      <article class="panel-card">
+        <h2>IA Gemini</h2>
+        <p class="muted">A chave fica salva apenas no navegador deste computador.</p>
+        <label for="apiKeyIA">API key OpenRouter/Gemini
+          <input id="apiKeyIA" type="password" autocomplete="off" placeholder="sk-or-v1-..." />
+        </label>
+        <label for="modeloIA">Modelo
+          <input id="modeloIA" type="text" placeholder="google/gemini-2.0-flash-001" />
+        </label>
+        <p class="ai-status" data-ai-status>IA configurável para estudos, rotina e dicas.</p>
+      </article>
+    </section>
+  </main>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>

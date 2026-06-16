@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercícios | Focus Tea</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="app-shell">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <aside class="sidebar" aria-label="Navegação principal">
+    <a class="brand" href="../dashboard.html"><span class="logo">🍵</span><span>Focus Tea</span></a>
+    <div class="user-card"><div class="avatar">👤</div><strong class="user-nome">Estudante</strong><span>Ambiente personalizado</span></div>
+    <nav class="side-nav">
+      <a href="../dashboard.html">🏠 Dashboard</a>
+      <a href="rotina.html">📅 Rotina</a>
+      <a href="estudos.html">📚 Estudos</a>
+      <a class="active" href="exercicios.html" aria-current="page">📝 Exercícios</a>
+      <a href="configuracoes.html">⚙️ Configurações</a>
+    </nav>
+  </aside>
+
+  <main id="conteudo" class="workspace">
+    <header class="workspace-header">
+      <div>
+        <span class="eyebrow">Prática guiada</span>
+        <h1>Exercícios adaptativos</h1>
+      </div>
+      <a class="btn btn-soft" href="estudos.html">📚 Revisar antes</a>
+    </header>
+
+    <section class="panel-card quiz" aria-labelledby="quiz-title">
+      <div class="quiz-selector">
+        <div>
+          <h2 id="quiz-title">Banco de questões por matéria</h2>
+          <p class="muted">Questões embaralhadas, feedback imediato e resultado final.</p>
+        </div>
+        <label for="materiaQuiz">Matéria</label>
+        <select id="materiaQuiz"></select>
+      </div>
+      <div id="quizContainer" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>

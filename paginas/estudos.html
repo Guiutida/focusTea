@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estudos | Focus Tea</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="app-shell">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <aside class="sidebar" aria-label="Navegação principal">
+    <a class="brand" href="../dashboard.html"><span class="logo">🍵</span><span>Focus Tea</span></a>
+    <div class="user-card"><div class="avatar">👤</div><strong class="user-nome">Estudante</strong><span>Ambiente personalizado</span></div>
+    <nav class="side-nav">
+      <a href="../dashboard.html">🏠 Dashboard</a>
+      <a href="rotina.html">📅 Rotina</a>
+      <a class="active" href="estudos.html" aria-current="page">📚 Estudos</a>
+      <a href="exercicios.html">📝 Exercícios</a>
+      <a href="configuracoes.html">⚙️ Configurações</a>
+    </nav>
+  </aside>
+
+  <main id="conteudo" class="workspace">
+    <header class="workspace-header">
+      <div>
+        <span class="eyebrow">Aprendizado adaptado</span>
+        <h1>Estudos com IA</h1>
+        <p class="ai-status" data-ai-status>IA pronta para responder.</p>
+      </div>
+    </header>
+
+    <section class="cards-2 study-grid">
+      <article class="panel-card">
+        <h2>Escolha a matéria</h2>
+        <label for="materia">Matéria</label>
+        <select id="materia" onchange="trocarMateria()"></select>
+        <div id="conteudoEstudo" class="study-content" aria-live="polite"></div>
+      </article>
+
+      <article class="panel-card">
+        <h2>Pergunte à IA</h2>
+        <div id="chatArea" class="chat-area" aria-live="polite">
+          <div class="chat-msg assistant">
+            <span class="chat-avatar" aria-hidden="true">🤖</span>
+            <div class="chat-bubble">Digite uma dúvida. Eu respondo em passos curtos e com exemplos.</div>
+          </div>
+        </div>
+        <div class="chat-input-row">
+          <textarea id="perguntaIA" placeholder="Digite sua dúvida..." aria-label="Digite sua dúvida para a IA"></textarea>
+          <button class="btn btn-primary" onclick="responderIA()">Enviar</button>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rotina | Focus Tea</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="app-shell">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <aside class="sidebar" aria-label="Navegação principal">
+    <a class="brand" href="../dashboard.html"><span class="logo">🍵</span><span>Focus Tea</span></a>
+    <div class="user-card"><div class="avatar">👤</div><strong class="user-nome">Estudante</strong><span>Ambiente personalizado</span></div>
+    <nav class="side-nav">
+      <a href="../dashboard.html">🏠 Dashboard</a>
+      <a class="active" href="rotina.html" aria-current="page">📅 Rotina</a>
+      <a href="estudos.html">📚 Estudos</a>
+      <a href="exercicios.html">📝 Exercícios</a>
+      <a href="configuracoes.html">⚙️ Configurações</a>
+    </nav>
+  </aside>
+
+  <main id="conteudo" class="workspace">
+    <header class="workspace-header">
+      <div>
+        <span class="eyebrow">Organização visual</span>
+        <h1>Minha rotina</h1>
+      </div>
+      <button id="btnGerarRotina" class="btn btn-primary" onclick="gerarRotinaIA()">🤖 Gerar rotina com IA</button>
+    </header>
+
+    <section class="panel-card" aria-labelledby="nova-tarefa-title">
+      <h2 id="nova-tarefa-title">Adicionar tarefa</h2>
+      <div class="inline-form">
+        <div class="form-group grow">
+          <label for="novaTarefa">Tarefa</label>
+          <input id="novaTarefa" type="text" placeholder="Ex: estudar matemática por 20 minutos" />
+        </div>
+        <div class="form-group">
+          <label for="horarioTarefa">Horário</label>
+          <input id="horarioTarefa" type="time" />
+        </div>
+        <div class="form-group">
+          <label for="categoriaTarefa">Categoria</label>
+          <select id="categoriaTarefa">
+            <option value="estudo">Estudo</option>
+            <option value="pausa">Pausa</option>
+            <option value="saude">Saúde</option>
+            <option value="lazer">Lazer</option>
+            <option value="outro">Outro</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" onclick="adicionarTarefa()">Adicionar</button>
+      </div>
+    </section>
+
+    <section class="cards-2 routine-grid">
+      <article class="panel-card">
+        <h2>Tarefas de hoje</h2>
+        <div id="listaTarefas" class="task-list" aria-live="polite"></div>
+      </article>
+
+      <article class="panel-card">
+        <h2>Linha do tempo</h2>
+        <div id="timelineRotina" class="timeline" aria-label="Linha do tempo da rotina"></div>
+      </article>
+    </section>
+
+    <section class="timer-wrapper" aria-labelledby="timer-title">
+      <h2 id="timer-title">Temporizador de foco</h2>
+      <div class="timer-container">
+        <span class="timer-mode-label" id="timerModoLabel">🎯 Foco</span>
+        <div class="timer-circle-wrapper" aria-live="polite">
+          <svg class="timer-svg" viewBox="0 0 160 160" aria-hidden="true">
+            <defs>
+              <linearGradient id="timerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#6d5dfc" />
+                <stop offset="100%" stop-color="#22c55e" />
+              </linearGradient>
+            </defs>
+            <circle class="timer-track" cx="80" cy="80" r="65"></circle>
+            <circle id="timerCircleProgress" class="timer-progress-circle" cx="80" cy="80" r="65"></circle>
+          </svg>
+          <div class="timer-display-center">
+            <strong id="timerDisplay">25:00</strong>
+            <span>minutos</span>
+          </div>
+        </div>
+        <div class="timer-controls">
+          <button id="btnTimer" class="btn btn-primary" onclick="toggleTimer()">▶ Iniciar</button>
+          <button class="btn btn-soft" onclick="resetTimer()">Reiniciar</button>
+        </div>
+        <div class="timer-presets" aria-label="Atalhos de tempo">
+          <button class="btn btn-ghost" onclick="setTimer(10)">10 min</button>
+          <button class="btn btn-ghost" onclick="setTimer(25)">25 min</button>
+          <button class="btn btn-ghost" onclick="setTimer(50)">50 min</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>
