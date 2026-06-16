@@ -3,6 +3,7 @@
 !.env.example
 node_modules/
 dist/
+js/env.local.js
 .vs/
 .vscode/*
 !.vscode/settings.json

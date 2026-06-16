@@ -27,4 +27,4 @@ Plataforma educacional estatica para estudantes com TEA, com rotina visual, estu
 
 ## IA
 
-O projeto usa OpenRouter com modelo `google/gemini-2.0-flash-001`. Por ser um site estatico, qualquer chave usada no navegador fica visivel para quem abrir o codigo. Para producao, mova a chamada para um backend ou proxy seguro.
+O projeto usa OpenRouter com modelo `google/gemini-2.5-flash`. Por ser um site estatico, qualquer chave usada no navegador fica visivel para quem abrir o codigo. Para producao, mova a chamada para um backend ou proxy seguro.

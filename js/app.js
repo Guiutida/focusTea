@@ -7,7 +7,7 @@
 // No prototipo estatico, informe a chave em Configuracoes > IA Gemini.
 const DEFAULT_API_KEY = '';
 const API_URL  = 'https://openrouter.ai/api/v1/chat/completions';
-const AI_MODEL = 'google/gemini-2.0-flash-001';
+const AI_MODEL = 'google/gemini-2.5-flash';
 
 const SYSTEM_PROMPT = `Você é o assistente educacional do Focus Tea, uma plataforma para estudantes com Transtorno do Espectro Autista (TEA).
 Ao responder:
@@ -23,8 +23,8 @@ Ao responder:
 // -- GEMINI AI -------------------------------------------------
 function getAIConfig() {
   return {
-    apiKey: localStorage.getItem('focusTeaApiKey') || DEFAULT_API_KEY,
-    model: localStorage.getItem('focusTeaAIModel') || AI_MODEL
+    apiKey: localStorage.getItem('focusTeaApiKey') || window.FOCUS_TEA_API_KEY || DEFAULT_API_KEY,
+    model: localStorage.getItem('focusTeaAIModel') || window.FOCUS_TEA_AI_MODEL || AI_MODEL
   };
 }
 
