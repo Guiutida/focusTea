@@ -6,7 +6,7 @@
   <title>Estudos | Focus Tea</title>
   <link rel="stylesheet" href="../css/style.css" />
 </head>
-<body class="app-shell">
+<body class="app-shell study-page">
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
   <aside class="sidebar" aria-label="Navegação principal">
     <a class="brand" href="../dashboard.html"><span class="logo">🍵</span><span>Focus Tea</span></a>
@@ -20,32 +20,49 @@
     </nav>
   </aside>
 
-  <main id="conteudo" class="workspace">
-    <header class="workspace-header">
-      <div>
-        <span class="eyebrow">Aprendizado adaptado</span>
-        <h1>Estudos com IA</h1>
-        <p class="ai-status" data-ai-status>IA pronta para responder.</p>
-      </div>
-    </header>
+  <main id="conteudo" class="study-workspace">
+    <section class="study-chat-shell" aria-label="Chat de estudos com IA">
+      <aside class="study-chat-rail" aria-label="Contexto de estudo">
+        <div class="study-rail-header">
+          <span class="eyebrow">Aprendizado adaptado</span>
+          <h1>Estudos</h1>
+          <p class="ai-status" data-ai-status>IA pronta para responder.</p>
+        </div>
 
-    <section class="cards-2 study-grid">
-      <article class="panel-card">
-        <h2>Escolha a matéria</h2>
-        <label for="materia">Matéria</label>
+        <label for="materia">Matéria atual</label>
         <select id="materia" onchange="trocarMateria()"></select>
-        <div id="conteudoEstudo" class="study-content" aria-live="polite"></div>
-      </article>
 
-      <article class="panel-card">
-        <h2>Pergunte à IA</h2>
-        <div id="chatArea" class="chat-area" aria-live="polite">
+        <div id="conteudoEstudo" class="study-context-card" aria-live="polite"></div>
+
+        <div class="quick-prompts" aria-label="Atalhos de pergunta">
+          <button class="btn btn-soft" onclick="usarPromptRapido('Explique esse tema em 5 passos simples.')">5 passos</button>
+          <button class="btn btn-soft" onclick="usarPromptRapido('Crie um resumo curto para prova.')">Resumo</button>
+          <button class="btn btn-soft" onclick="usarPromptRapido('Me passe 3 exercícios sobre esse tema.')">Exercícios</button>
+        </div>
+      </aside>
+
+      <article class="study-chat-panel">
+        <header class="study-chat-header">
+          <div class="chat-contact">
+            <span class="chat-contact-avatar" aria-hidden="true">🤖</span>
+            <div>
+              <h2>Focus IA</h2>
+              <span id="materiaAtualChat">Assistente de estudos</span>
+            </div>
+          </div>
+          <a class="btn btn-ghost" href="configuracoes.html">Configurar IA</a>
+        </header>
+
+        <div id="chatArea" class="chat-area study-chat-area" aria-live="polite">
           <div class="chat-msg assistant">
             <span class="chat-avatar" aria-hidden="true">🤖</span>
-            <div class="chat-bubble">Digite uma dúvida. Eu respondo em passos curtos e com exemplos.</div>
+            <div class="chat-bubble">
+              Oi! Escolha uma matéria e mande sua dúvida. Eu respondo em passos curtos, com exemplos e sem enrolar.
+            </div>
           </div>
         </div>
-        <div class="chat-input-row">
+
+        <div class="chat-input-row study-chat-input">
           <textarea id="perguntaIA" placeholder="Digite sua dúvida..." aria-label="Digite sua dúvida para a IA"></textarea>
           <button class="btn btn-primary" onclick="responderIA()">Enviar</button>
         </div>

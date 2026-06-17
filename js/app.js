@@ -384,7 +384,19 @@ async function trocarMateria() {
   const key       = select?.value || 'fotossintese';
   const nome      = MATERIAS[key] || key;
   const el        = document.getElementById('conteudoEstudo');
+  const header    = document.getElementById('materiaAtualChat');
   if (!el) return;
+
+  if (header) header.textContent = `Estudando ${nome}`;
+
+  if (document.body.classList.contains('study-page')) {
+    el.innerHTML = `
+      <strong>${escapeHTML(nome)}</strong>
+      <p>Pergunte qualquer coisa sobre esta matéria. Posso explicar, resumir, montar exemplos ou criar exercícios.</p>
+      <span>Contexto ativo para a conversa</span>
+    `;
+    return;
+  }
 
   el.innerHTML = `<div class="loading-ai"><div class="spinner"></div> Preparando explicação sobre ${nome}...</div>`;
 
@@ -407,6 +419,15 @@ Seja breve e use emojis.`;
       <button class="btn btn-ghost" onclick="resumirTopico('${key}')">📝 Resumo rápido</button>
     </div>
   `;
+}
+
+function usarPromptRapido(texto) {
+  const input = document.getElementById('perguntaIA');
+  if (!input) return;
+  input.value = texto;
+  input.focus();
+  input.style.height = 'auto';
+  input.style.height = Math.min(input.scrollHeight, 120) + 'px';
 }
 
 async function explicarOutroJeito(key) {
