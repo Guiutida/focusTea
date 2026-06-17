@@ -27,4 +27,13 @@ Plataforma educacional estatica para estudantes com TEA, com rotina visual, estu
 
 ## IA
 
-O projeto usa OpenRouter com modelo `google/gemini-2.5-flash`. Por ser um site estatico, qualquer chave usada no navegador fica visivel para quem abrir o codigo. Para producao, mova a chamada para um backend ou proxy seguro.
+O projeto usa OpenRouter com modelo `google/gemini-2.5-flash`.
+
+Depois de baixar o projeto do GitHub, a IA nao vem com chave configurada porque `js/env.local.js` fica fora do Git para nao vazar segredo publico.
+
+Para ativar a IA localmente, use uma destas opcoes:
+
+1. Abra `paginas/configuracoes.html`, cole sua chave em `API key OpenRouter/Gemini` e salve.
+2. Ou copie `js/env.local.example.js` para `js/env.local.js` e troque `cole_sua_chave_openrouter_aqui` pela sua chave.
+
+Por ser um site estatico, qualquer chave usada no navegador fica visivel para quem abrir o codigo. Para producao, mova a chamada para um backend ou proxy seguro.

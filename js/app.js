@@ -28,6 +28,10 @@ function getAIConfig() {
   };
 }
 
+function hasAIKey() {
+  return Boolean(getAIConfig().apiKey);
+}
+
 function setAIStatus(message, type = 'info') {
   document.querySelectorAll('[data-ai-status]').forEach(el => {
     el.textContent = message;
@@ -521,6 +525,21 @@ function addChatMessage(container, text, role) {
   }
 
   container.appendChild(div);
+}
+
+function renderAISetupNotice() {
+  const chatEl = document.getElementById('chatArea');
+  if (!chatEl || hasAIKey() || document.getElementById('aiSetupNotice')) return;
+
+  const div = document.createElement('div');
+  div.id = 'aiSetupNotice';
+  div.className = 'chat-msg assistant';
+  div.innerHTML = `<span class="chat-avatar" aria-hidden="true">🤖</span>
+    <div class="chat-bubble">
+      Para ativar a IA real neste download, abra Configurar IA, cole sua chave OpenRouter/Gemini e salve.
+      Sem a chave, eu respondo em modo offline.
+    </div>`;
+  chatEl.appendChild(div);
 }
 
 // ── EXERCÍCIOS ────────────────────────────────────────────────
@@ -1141,6 +1160,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('#materia,#materiaQuiz').forEach(renderMateriaOptions);
   if (document.getElementById('conteudoEstudo')) {
     trocarMateria();
+    renderAISetupNotice();
   }
 
   // Exercícios
